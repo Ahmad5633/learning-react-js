@@ -1,10 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import "./App.css";
 import Login from "./pages/login";
 import Register from "./pages/register";
 import Home from "./pages/home";
+import React from "react";
 
 function App() {
+  React.useEffect(() => {
+    if (!localStorage.getItem("users")) {
+      localStorage.setItem("users", JSON.stringify([]));
+    }
+  });
   return (
     <BrowserRouter>
       <Routes>
